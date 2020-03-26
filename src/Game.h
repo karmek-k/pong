@@ -8,7 +8,7 @@
 #include <SFML/Graphics.hpp>
 
 class Game {
-    static void game_loop(sf::RenderWindow&);
+    static void gameLoop(sf::RenderWindow&);
 public:
     Game(unsigned width, unsigned height);
     //~Game();

@@ -9,10 +9,10 @@
 Game::Game(unsigned width, unsigned height) {
     // create the window
     sf::RenderWindow window(sf::VideoMode(width, height), "Pong");
-    game_loop(window);
+    gameLoop(window);
 }
 
-void Game::game_loop(sf::RenderWindow& window) {
+void Game::gameLoop(sf::RenderWindow& window) {
     // main loop
     while (window.isOpen()) {
         // event handling
