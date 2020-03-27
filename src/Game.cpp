@@ -11,6 +11,7 @@
 Game::Game(unsigned width, unsigned height) {
     // create the window
     sf::RenderWindow window(sf::VideoMode(width, height), "Pong");
+    window.setFramerateLimit(60u);
 
     // create paddles
     Paddle leftPaddle(Side::LEFT);
