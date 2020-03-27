@@ -12,8 +12,8 @@
 #include "GameObject.h"
 
 class Game {
-    static void gameLoop(sf::RenderWindow&);
-    std::set<GameObject> gameObjects;
+    void gameLoop(sf::RenderWindow&);
+    std::set<GameObject*> gameObjects;
 public:
     Game(unsigned width, unsigned height);
     //~Game();

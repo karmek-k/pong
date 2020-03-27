@@ -5,10 +5,21 @@
 #include <SFML/Graphics.hpp>
 
 #include "Game.h"
+#include "Paddle.h"
 
 Game::Game(unsigned width, unsigned height) {
     // create the window
     sf::RenderWindow window(sf::VideoMode(width, height), "Pong");
+
+    // create paddles
+    constexpr float SPEED = 10.0f;
+    Paddle leftPaddle(Side::LEFT, SPEED);
+    Paddle rightPaddle(Side::RIGHT, SPEED);
+
+    // set up gameObjects
+    gameObjects.insert(&leftPaddle);
+    gameObjects.insert(&rightPaddle);
+
     gameLoop(window);
 }
 
@@ -25,6 +36,9 @@ void Game::gameLoop(sf::RenderWindow& window) {
 
         // rendering
         window.clear(sf::Color::Black);
+        for (GameObject* obj : gameObjects) {
+            window.draw(*obj->getDrawable());
+        }
         window.display();
     }
 }

@@ -9,10 +9,8 @@
 
 class GameObject {
     sf::Vector2f pos;
-    std::string name;
 public:
-    virtual void setPos(sf::Vector2f pos);
-    virtual sf::Vector2f getPos();
+    virtual sf::Drawable* getDrawable() = 0;
 };
 
 
