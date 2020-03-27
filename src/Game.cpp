@@ -12,9 +12,8 @@ Game::Game(unsigned width, unsigned height) {
     sf::RenderWindow window(sf::VideoMode(width, height), "Pong");
 
     // create paddles
-    constexpr float SPEED = 10.0f;
-    Paddle leftPaddle(Side::LEFT, SPEED);
-    Paddle rightPaddle(Side::RIGHT, SPEED);
+    Paddle leftPaddle(Side::LEFT);
+    Paddle rightPaddle(Side::RIGHT);
 
     // set up gameObjects
     gameObjects.insert(&leftPaddle);
@@ -29,6 +28,7 @@ void Game::gameLoop(sf::RenderWindow& window) {
         // event handling
         sf::Event e {};
         while (window.pollEvent(e)) {
+            // handle window closing
             if (e.type == sf::Event::Closed) {
                 window.close();
             }

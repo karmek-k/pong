@@ -8,7 +8,6 @@
 #include <SFML/Graphics.hpp>
 
 class GameObject {
-    sf::Vector2f pos;
 public:
     virtual sf::Drawable* getDrawable() = 0;
 };

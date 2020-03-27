@@ -3,21 +3,22 @@
 //
 
 #include "Paddle.h"
+#include "constants.h"
 
-Paddle::Paddle(Side side, float speed) {
+Paddle::Paddle(Side side) {
     this->side = side;
-    this->speed = speed;
 
     // Create the paddle shape
-    shape = sf::RectangleShape(sf::Vector2f(10.0f, 50.0f));
+    shape = sf::RectangleShape(sf::Vector2f(PADDLE_WIDTH, PADDLE_HEIGHT));
     shape.setFillColor(sf::Color::White);
+    shape.setOrigin(sf::Vector2f(PADDLE_WIDTH / 2.0, PADDLE_HEIGHT / 2.0));
 
     sf::Vector2f pos;
     if (side == Side::LEFT) {
-        pos = {10.0f, 300.0f};
+        pos = {PADDLE_DISTANCE_FROM_EDGE, DEFAULT_HEIGHT / 2.0};
     }
     else {
-        pos = {700.0f, 300.0f};
+        pos = {DEFAULT_WIDTH - PADDLE_DISTANCE_FROM_EDGE, DEFAULT_HEIGHT / 2.0};
     }
 
     shape.setPosition(pos);
@@ -27,10 +28,10 @@ void Paddle::move(Direction dir) {
     sf::Vector2f pos = shape.getPosition();
 
     if (dir == Direction::UP) {
-        pos.y -= speed;
+        pos.y -= PADDLE_SPEED;
     }
     if (dir == Direction::DOWN) {
-        pos.y += speed;
+        pos.y += PADDLE_SPEED;
     }
 
     shape.setPosition(pos);

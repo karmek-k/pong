@@ -2,8 +2,7 @@
 #include <cstdlib>
 
 #include "Game.h"
-
-constexpr unsigned DEFAULT_WIDTH = 800u, DEFAULT_HEIGHT = 600u;
+#include "constants.h"
 
 int main(int args, char* argv[]) {
     unsigned width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT;
