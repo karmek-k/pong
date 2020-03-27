@@ -5,7 +5,7 @@
 #ifndef PONG_GAME_H
 #define PONG_GAME_H
 
-#include <set>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 
@@ -13,7 +13,10 @@
 
 class Game {
     void gameLoop(sf::RenderWindow&);
-    std::set<GameObject*> gameObjects;
+    void handleKeyPress(sf::Keyboard::Key &);
+
+    std::map<const char*, GameObject*> gameObjects;
+
 public:
     Game(unsigned width, unsigned height);
     //~Game();

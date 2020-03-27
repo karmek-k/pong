@@ -16,10 +16,20 @@ Game::Game(unsigned width, unsigned height) {
     Paddle rightPaddle(Side::RIGHT);
 
     // set up gameObjects
-    gameObjects.insert(&leftPaddle);
-    gameObjects.insert(&rightPaddle);
+    gameObjects["leftPaddle"] = &leftPaddle;
+    gameObjects["rightPaddle"] = &rightPaddle;
 
     gameLoop(window);
+}
+
+
+void Game::handleKeyPress(sf::Keyboard::Key& key) {
+    // left paddle
+    /*
+    if (key == sf::Keyboard::W) {
+        gameObjects.
+    }
+    */
 }
 
 void Game::gameLoop(sf::RenderWindow& window) {
@@ -32,12 +42,17 @@ void Game::gameLoop(sf::RenderWindow& window) {
             if (e.type == sf::Event::Closed) {
                 window.close();
             }
+
+            // handle hey presses
+            if (e.type == sf::Event::KeyPressed) {
+                handleKeyPress(e.key.code);
+            }
         }
 
         // rendering
         window.clear(sf::Color::Black);
-        for (GameObject* obj : gameObjects) {
-            window.draw(*obj->getDrawable());
+        for (auto obj : gameObjects) { // obj type: pair<const char*, GameObject*>
+            window.draw(*obj.second->getDrawable());
         }
         window.display();
     }
