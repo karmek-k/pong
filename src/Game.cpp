@@ -6,6 +6,7 @@
 
 #include "Game.h"
 #include "Paddle.h"
+#include "constants.h"
 
 Game::Game(unsigned width, unsigned height) {
     // create the window
@@ -23,13 +24,20 @@ Game::Game(unsigned width, unsigned height) {
 }
 
 
-void Game::handleKeyPress(sf::Keyboard::Key& key) {
-    // left paddle
-    /*
-    if (key == sf::Keyboard::W) {
-        gameObjects.
+void Game::handleKeyPress() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+        gameObjects["leftPaddle"]->move(Direction::UP);
     }
-    */
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
+        gameObjects["leftPaddle"]->move(Direction::DOWN);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
+        gameObjects["rightPaddle"]->move(Direction::UP);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
+        gameObjects["rightPaddle"]->move(Direction::DOWN);
+    }
+
 }
 
 void Game::gameLoop(sf::RenderWindow& window) {
@@ -43,10 +51,8 @@ void Game::gameLoop(sf::RenderWindow& window) {
                 window.close();
             }
 
-            // handle hey presses
-            if (e.type == sf::Event::KeyPressed) {
-                handleKeyPress(e.key.code);
-            }
+            // handle key presses
+            handleKeyPress();
         }
 
         // rendering

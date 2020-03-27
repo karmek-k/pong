@@ -7,9 +7,12 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "constants.h"
+
 class GameObject {
 public:
     virtual sf::Drawable* getDrawable() = 0;
+    virtual void move(Direction) = 0;
 };
 
 

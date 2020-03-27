@@ -13,7 +13,7 @@
 
 class Game {
     void gameLoop(sf::RenderWindow&);
-    void handleKeyPress(sf::Keyboard::Key &);
+    void handleKeyPress();
 
     std::map<const char*, GameObject*> gameObjects;
 

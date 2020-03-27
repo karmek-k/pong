@@ -12,4 +12,8 @@ constexpr unsigned DEFAULT_WIDTH = 800u, DEFAULT_HEIGHT = 600u;
 constexpr float PADDLE_WIDTH = 10.0f, PADDLE_HEIGHT = 150.0f, PADDLE_DISTANCE_FROM_EDGE = 10.0f;
 constexpr float PADDLE_SPEED = 10.0f;
 
+// Enums
+enum class Side { LEFT, RIGHT };
+enum class Direction { UP, DOWN };
+
 #endif //PONG_CONSTANTS_H
