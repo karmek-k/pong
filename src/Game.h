@@ -12,15 +12,14 @@
 #include "GameObject.h"
 
 class Game {
-    void gameLoop(sf::RenderWindow&);
-    void handleKeyPress();
+  void gameLoop(sf::RenderWindow &);
+  void handleKeyPress();
 
-    std::map<const char*, GameObject*> gameObjects;
+  std::map<const char *, GameObject *> gameObjects;
 
 public:
-    Game(unsigned width, unsigned height);
-    //~Game();
+  Game(unsigned width, unsigned height);
+  //~Game();
 };
 
-
-#endif //PONG_GAME_H
+#endif // PONG_GAME_H

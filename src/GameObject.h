@@ -11,9 +11,8 @@
 
 class GameObject {
 public:
-    virtual sf::Drawable* getDrawable() = 0;
-    virtual void move(Direction) = 0;
+  virtual sf::Drawable *getDrawable() = 0;
+  virtual void move(Direction) = 0;
 };
 
-
-#endif //PONG_GAMEOBJECT_H
+#endif // PONG_GAMEOBJECT_H
